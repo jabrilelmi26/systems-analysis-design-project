@@ -1,0 +1,38 @@
+erDiagram
+  BORROWER ||--o{ LOAN : requests
+  ASSET ||--o{ LOAN : assigned_in
+  STAFF ||--o{ LOAN : processes
+  LOAN ||--o{ AUDIT_EVENT : generates
+  BORROWER {
+    int borrower_id PK
+    string display_name
+    string eligibility_status
+  }
+  ASSET {
+    int asset_id PK
+    string asset_tag UK
+    string asset_type
+    string condition
+    string status
+  }
+  STAFF {
+    int staff_id PK
+    string staff_display_name
+    string role
+  }
+  LOAN {
+    int loan_id PK
+    int borrower_id FK
+    int asset_id FK
+    int processed_by FK
+    datetime checked_out_at
+    datetime due_at
+    datetime returned_at
+  }
+  AUDIT_EVENT {
+    int event_id PK
+    int loan_id FK
+    datetime event_at
+    string action
+    int actor_staff_id
+  }

@@ -1,0 +1,11 @@
+flowchart TD
+  A[Staff receives checkout request] --> B{Borrower eligible?}
+  B -- No --> C[Explain eligibility policy]
+  B -- Yes --> D{Asset available?}
+  D -- No --> E[Suggest another asset]
+  D -- Yes --> F[Record asset, borrower, and due date]
+  F --> G{Validation passes?}
+  G -- No --> H[Correct missing information]
+  H --> F
+  G -- Yes --> I[Create loan and audit event]
+  I --> J[Provide due-date receipt]

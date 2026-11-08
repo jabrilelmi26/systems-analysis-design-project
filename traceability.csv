@@ -1,0 +1,9 @@
+requirement_id,design_element,acceptance_test
+FR-01,ASSET.status,Unavailable asset cannot be checked out
+FR-02,UC-01 and LOAN,Eligible borrower can create active loan
+FR-03,LOAN.asset_id,Second active checkout is rejected
+FR-04,UC-02 and LOAN.returned_at,Return marks loan closed
+FR-05,LOAN.due_at,Active loans past due date appear in report
+FR-06,AUDIT_EVENT,Checkout and return each generate audit event
+NFR-01,STAFF.role,Unauthorized edit is denied
+NFR-02,LOAN dates,UTC storage and local display validated
